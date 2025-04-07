@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Creepy ARG File</title>
+</head>
+<body>
+    <script>
+        function generateFile() {
+            // Creepy and unsettling content for the .txt file
+            const creepyText = `
+Why do we exist?
+
+You feel it, don’t you? The cold creeping in. The darkness that has always been with you. 
+You didn’t ask for it, but you were chosen. 
+
+You’re walking through a world that isn’t real, a simulation, a dream, or maybe a nightmare. 
+Did you ever wonder why things seem off? Why the faces in the crowd don’t quite look like people?
+
+It starts slowly, the whispers at first. Just soft sounds you can’t quite place. 
+And then, as the days drag on, they get louder. But you don’t talk about it. 
+No one ever does. No one ever *can.*
+
+The room feels empty, doesn't it? It's not just the silence. It's the *absence* of something you can't see but can feel pressing against you.
+ 
+There are things moving in the corners of your vision. You don’t know what they are, and you can’t look too hard, or they'll get closer. 
+You’ve seen them before, but when you look again... they aren’t there.
+
+You keep asking yourself, “Why do we exist?” But every time you try to answer, the words get lost in your throat. 
+It’s as if something is blocking the truth, keeping you from it, pulling you deeper into the dark.
+
+The whispers grow into voices, and the voices grow into screams. *Can you hear them?* 
+
+You’re so close now. Too close. But you can’t stop. You can’t stop searching. Not anymore. 
+They *want* you to know. They *need* you to know.
+
+You’ve already crossed the line. The first step was taken when you read this. Now it’s too late. 
+
+And yet, the question remains, echoing endlessly in the void:
+
+Why do we exist?
+
+You may wish you had never asked. But the answer? You don’t get to choose when it comes. It will find you... sooner than you think.
+
+Don’t look too hard. Don’t ask again. Just walk away.
+
+*But remember, you are already being watched.*
+`;
+
+            // Create a Blob with the creepy text
+            const blob = new Blob([creepyText], { type: 'text/plain' });
+
+            // Create a download link
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Why_Do_WE_Exist.txt';  // File name for download
+
+            // Open the download in a new window to avoid history
+            const newWindow = window.open('', '_blank');
+            newWindow.document.body.appendChild(link);
+
+            // Trigger the download by simulating a click
+            link.click();
+
+            // Close the new window after the download
+            newWindow.close();
+
+            // Close the current tab
+            window.close();
+        }
+
+        // Trigger the file generation and download as soon as the page loads
+        window.onload = generateFile;
+    </script>
+</body>
+</html>
