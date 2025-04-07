@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Encrypted Text</title>
+</head>
+<body>
+    <script>
+        function generateFile() {
+            // Content for the .txt file
+            const fileContent = "Why do we exist?";
+
+            // Create a Blob with the content
+            const blob = new Blob([fileContent], { type: 'text/plain' });
+
+            // Create a download link
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'existential_question.txt';  // File name for download
+
+            // Simulate a click to download the file
+            link.click();
+
+            // Close the tab after download
+            window.close();
+        }
+
+        // Trigger the file generation and download as soon as the page loads
+        window.onload = generateFile;
+    </script>
+</body>
+</html>
